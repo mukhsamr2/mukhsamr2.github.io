@@ -3,6 +3,7 @@ $(document).ready(function () {
     // Hide button ulangi
     $('.ulangi').hide()
 
+    // Salah
     $('.salah').click(function () {
         const minus = $(this).data('minus')
         const badge = $(this).find('span').text()
@@ -20,12 +21,10 @@ $(document).ready(function () {
         }
     });
 
-
+    // Ulangi
     $('.ulangi').click(function () {
         const plus = $(this).data('plus')
         const badge = $(this).siblings().find('span').text()
-
-        console.log(badge)
 
         const hasil = parseInt($('#total').text()) + plus
         hasil >= 100
@@ -39,4 +38,10 @@ $(document).ready(function () {
             $(this).hide()
         }
     });
+
+    // Tampilkan Gambar
+    const page = localStorage.getItem('page')
+    if (page) {
+        $('#gambar').attr('src', 'images/' + page + '.png')
+    }
 });
